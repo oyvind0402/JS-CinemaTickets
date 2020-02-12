@@ -9,6 +9,14 @@ function kjopBillett() {
 
     const filmArray = [];
 
+    // feilmeldingene resettes hvis du skriver noe i feltet du tidligere ikke hadde skrevet noe i
+    document.getElementById("fornavnError").innerHTML = '';
+    document.getElementById("etternavnError").innerHTML = '';
+    document.getElementById("filmError").innerHTML = '';
+    document.getElementById("antallError").innerHTML = '';
+    document.getElementById("telefonError").innerHTML = '';
+    document.getElementById("epostError").innerHTML = '';
+
     if(film.value !== null && film.value !=='' && film.value !== "Velg film her!"){
         filmArray.push(film);
     } else {
@@ -57,9 +65,15 @@ function kjopBillett() {
             "<td><strong>Epost</strong></td></tr>" + "\n";
 
         ut += "<tr>";
-        for(let film of filmArray){
-            if(film.value !== null && film.value !== '' && film.value !== "Velg film her!" && antall.value !== '' && antall.value !== null && fornavn.value !== '' && fornavn.value !== null && etternavn.value !== '' && etternavn.value !== null && telefonnr.value !== '' && telefonnr.value !== null && epost.value !== '' && epost.value !== null) {
-                ut += "<td>" + film.value + "</td>";
+        for(let filmer of filmArray){
+            if(film.value !== null && film.value !== '' && film.value !== "Velg film her!"
+                && antall.value !== '' && antall.value !== null
+                && fornavn.value !== '' && fornavn.value !== null
+                && etternavn.value !== '' && etternavn.value !== null
+                && telefonnr.value !== '' && telefonnr.value !== null
+                && epost.value !== '' && epost.value !== null)
+            {
+                ut += "<td>" + filmer.value + "</td>";
             }
         }
 
@@ -68,6 +82,7 @@ function kjopBillett() {
 
     document.getElementById("filmInfo").innerHTML = ut;
 
+    // inputfeltene "blankes"
     document.getElementById("fornavn").value = '';
     document.getElementById("etternavn").value = '';
     document.getElementById("film").value = '';
