@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Billett bestilling</title>
+    <script type = "text/javascript" src = "script.js"></script>
+</head>
+<body>
+<h1>Bestilling av kinobilletter</h1>
+    <p><strong>Velg film:</strong>
+        <select id="film">
+            <option hidden>Velg film her!</option>
+            <option>Haisommer</option>
+            <option>Nattsvermeren</option>
+            <option>Ringenes Herre</option>
+            <option>Udødelig Våpen 1</option>
+            <option>Dumbo</option>
+            <option>Uno</option>
+        </select>
+        <span id = "filmError" style = "color: red;"></span>
+    </p>
+
+<p><strong>Antall</strong>
+    <input type = 'text' id = "antallFilmer" style= "width: 20px;" required>
+    <span id="antallError" style = "color: red;"></span>
+</p>
+
+<br/>
+<table>
+    <tr>
+        <td><strong>Fornavn</strong></td>
+        <td><input type = "text" id = "fornavn" required></td>
+        <td><span id="fornavnError" style = "color: red;"></span></td>
+    </tr>
+    <tr>
+        <td><strong>Etternavn</strong></td>
+        <td><input type = "text" id = "etternavn" required></td>
+        <td><span id = etternavnError style = "color: red;"></span></td>
+    </tr>
+    <tr>
+        <td><strong>Telefonnr</strong></td>
+        <td><input type = "text" id="telefonnr" required></td>
+        <td><span id="telefonError" style = "color: red;"></span></td>
+    </tr>
+    <tr>
+        <td><strong>Epost</strong></td>
+        <td><input type = "text" id = "epost" required></td>
+        <td><span id="epostError" style = "color: red;"></span></td>
+    </tr>
+</table>
+<button onclick = "kjopBillett();">Kjøp billett</button>
+<h2>Alle billetter</h2>
+<div id = "filmInfo"></div>
+<button onclick="slettBilletter();">Slett alle billettene</button>
+</body>
+</html>
