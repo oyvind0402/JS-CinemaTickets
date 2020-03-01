@@ -6,17 +6,19 @@ function kjopBillett() {
     let telefonnr = document.getElementById("telefonnr");
     let epost = document.getElementById("epost");
     let film = document.getElementById("film");
+    //Her du måtte sette array utenfor funksjonen ,Slik at du ikke får et nytt array hver gang du trykker på knapp kjopbillett. 
 
     const filmArray = [];
 
     // feilmeldingene resettes hvis du skriver noe i feltet du tidligere ikke hadde skrevet noe i
+    //prøv neste gang å dele koden din i flere metoder, du kunne sette den delen med nullstille feltene i en egen metode.
     document.getElementById("fornavnError").innerHTML = '';
     document.getElementById("etternavnError").innerHTML = '';
     document.getElementById("filmError").innerHTML = '';
     document.getElementById("antallError").innerHTML = '';
     document.getElementById("telefonError").innerHTML = '';
     document.getElementById("epostError").innerHTML = '';
-
+//Veldig bra bruk av if ,else her .
     if(film.value !== null && film.value !=='' && film.value !== "Velg film her!"){
         filmArray.push(film);
     } else {
@@ -66,6 +68,7 @@ function kjopBillett() {
 
         ut += "<tr>";
         for(let filmer of filmArray){
+            //Det gir ikke mening å bruke if her,siden du har sjekket det oppe før du pusher et element i arrayet. 
             if(film.value !== null && film.value !== '' && film.value !== "Velg film her!"
                 && antall.value !== '' && antall.value !== null
                 && fornavn.value !== '' && fornavn.value !== null
