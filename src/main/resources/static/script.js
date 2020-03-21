@@ -1,5 +1,3 @@
-let filmArray = [];
-
 function registrerBillett() {
 
     const billett = {
@@ -13,7 +11,9 @@ function registrerBillett() {
 
     const error = validerInput();
     if(!error) {
-        filmArray.push(billett);
+        $.post("/lagreBillett", billett, function () {
+            hentBillettene();
+        });
 
         $("#film").get(0).selectedIndex = 0;
         $("#antallFilmer").val("");
@@ -22,8 +22,12 @@ function registrerBillett() {
         $("#telefonnr").val("");
         $("#epost").val("");
     }
+}
 
-    visBillett();
+function hentBillettene() {
+    $.get("/hentBillettene", function (billetter) {
+        visBillett(billetter);
+    });
 }
 
 
@@ -64,7 +68,7 @@ function validerInput() {
     return error;
 }
 
-function visBillett() {
+function visBillett(billetter) {
     let ut = "";
 
     ut += "<table><tr><th><strong>Film</strong></th>" +
@@ -74,17 +78,18 @@ function visBillett() {
         "<th><strong>Telefonnr</strong></th>" +
         "<th><strong>Epost</strong></th></tr>";
 
-    for(let filmer of filmArray){
-        ut += "<tr><td>" + filmer.film + "</td><td>" + filmer.antall;
-        ut += "</td><td>" + filmer.fornavn + "</td><td>" + filmer.etternavn;
-        ut += "</td><td>" + filmer.telefonnr + "</td><td>" + filmer.epost;
+    for(let billett of billetter){
+        ut += "<tr><td>" + billett.film + "</td><td>" + billett.antall;
+        ut += "</td><td>" + billett.fornavn + "</td><td>" + billett.etternavn;
+        ut += "</td><td>" + billett.telefonnr + "</td><td>" + billett.epost;
         ut += "</td></tr>"
     }
     ut += "</table>";
     $("#filmInfo").html(ut);
 }
 
-function slettBilletter() {
-    filmArray = [];
-    visBillett();
+function slettBillettene() {
+    $.get("/slettBillettene", function () {
+        hentBillettene();
+    })
 }
