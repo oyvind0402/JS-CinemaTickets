@@ -1,96 +1,90 @@
-function kjopBillett() {
+let filmArray = [];
 
-    let antall = document.getElementById("antallFilmer");
-    let fornavn = document.getElementById("fornavn");
-    let etternavn = document.getElementById("etternavn");
-    let telefonnr = document.getElementById("telefonnr");
-    let epost = document.getElementById("epost");
-    let film = document.getElementById("film");
+function registrerBillett() {
 
-    const filmArray = [];
+    const billett = {
+        film: $("#film").val(),
+        antall: $("#antallFilmer").val(),
+        fornavn: $("#fornavn").val(),
+        etternavn: $("#etternavn").val(),
+        telefonnr: $("#telefonnr").val(),
+        epost: $("#epost").val()
+    };
 
-    // feilmeldingene resettes hvis du skriver noe i feltet du tidligere ikke hadde skrevet noe i
-    document.getElementById("fornavnError").innerHTML = '';
-    document.getElementById("etternavnError").innerHTML = '';
-    document.getElementById("filmError").innerHTML = '';
-    document.getElementById("antallError").innerHTML = '';
-    document.getElementById("telefonError").innerHTML = '';
-    document.getElementById("epostError").innerHTML = '';
+    const error = validerInput();
+    if(!error) {
+        filmArray.push(billett);
 
-    if(film.value !== null && film.value !=='' && film.value !== "Velg film her!"){
-        filmArray.push(film);
-    } else {
-        document.getElementById("filmError").innerHTML = "Du må velge en film"
+        $("#film").get(0).selectedIndex = 0;
+        $("#antallFilmer").val("");
+        $("#fornavn").val("");
+        $("#etternavn").val("");
+        $("#telefonnr").val("");
+        $("#epost").val("");
     }
 
-    if(antall.value !== null && antall.value !== ''){
-        filmArray.push(antall);
-    } else {
-        document.getElementById("antallError").innerHTML = "Du må skrive et antall billetter";
+    visBillett();
+}
+
+
+function validerInput() {
+
+    $("#fornavnError").html("");
+    $("#etternavnError").html("");
+    $("#telefonError").html("");
+    $("#epostError").html("");
+    $("#antallError").html("");
+
+    let error = false;
+
+    if($("#film").val()===""){
+        $("#filmError").html("Du må velge en film!");
+        error = true;
     }
-
-    if(fornavn.value !== null && fornavn.value !== ''){
-        filmArray.push(fornavn);
-    } else {
-        document.getElementById("fornavnError").innerHTML = "Du må skrive inn et fornavn";
+    if($("#antallFilmer").val()===""){
+        $("#antallError").html("Du må skrive et antall billetter");
+        error = true;
     }
-
-    if(etternavn.value !== null && etternavn.value !== ''){
-        filmArray.push(etternavn);
-    } else {
-        document.getElementById("etternavnError").innerHTML = "Du må skrive inn et etternavn";
+    if($("#fornavn").val()===""){
+        $("#fornavnError").html("Du må skrive inn et fornavn");
+        error = true;
     }
-
-    if(telefonnr.value !== null && telefonnr.value !== ''){
-        filmArray.push(telefonnr)
-    } else {
-        document.getElementById("telefonError").innerHTML = "Du må skrive inn et telefonnr";
+    if($("#etternavn").val()===""){
+        $("#etternavnError").html("Du må skrive inn et etternavn");
+        error = true;
     }
-
-    if(epost.value !== null && epost.value !== ''){
-        filmArray.push(epost);
-    } else {
-        document.getElementById("epostError").innerHTML = "Du må skrive inn en epost";
+    if($("#telefonnr").val()===""){
+        $("#telefonError").html("Du må skrive inn et telefonnr");
+        error = true;
     }
+    if($("#epost").val()===""){
+        $("#epostError").html("Du må skrive inn en epost");
+        error = true;
+    }
+    return error;
+}
 
-
+function visBillett() {
     let ut = "";
 
+    ut += "<table><tr><th><strong>Film</strong></th>" +
+        "<th><strong>Antall</strong></th>" +
+        "<th><strong>Fornavn</strong></th>" +
+        "<th><strong>Etternavn</strong></th>" +
+        "<th><strong>Telefonnr</strong></th>" +
+        "<th><strong>Epost</strong></th></tr>";
 
-        ut += "<table><tr><td><strong>Film</strong></td>" +
-            "<td><strong>Antall</strong></td>" +
-            "<td><strong>Fornavn</strong></td>" +
-            "<td><strong>Etternavn</strong></td>" +
-            "<td><strong>Telefonnr</strong></td>" +
-            "<td><strong>Epost</strong></td></tr>" + "\n";
-
-        ut += "<tr>";
-        for(let filmer of filmArray){
-            if(film.value !== null && film.value !== '' && film.value !== "Velg film her!"
-                && antall.value !== '' && antall.value !== null
-                && fornavn.value !== '' && fornavn.value !== null
-                && etternavn.value !== '' && etternavn.value !== null
-                && telefonnr.value !== '' && telefonnr.value !== null
-                && epost.value !== '' && epost.value !== null)
-            {
-                ut += "<td>" + filmer.value + "</td>";
-            }
-        }
-
-        ut += "</tr></table>"
-
-
-    document.getElementById("filmInfo").innerHTML = ut;
-
-    // inputfeltene "blankes"
-    document.getElementById("fornavn").value = '';
-    document.getElementById("etternavn").value = '';
-    document.getElementById("film").value = '';
-    document.getElementById("antallFilmer").value = '';
-    document.getElementById("telefonnr").value = '';
-    document.getElementById("epost").value = '';
+    for(let filmer of filmArray){
+        ut += "<tr><td>" + filmer.film + "</td><td>" + filmer.antall;
+        ut += "</td><td>" + filmer.fornavn + "</td><td>" + filmer.etternavn;
+        ut += "</td><td>" + filmer.telefonnr + "</td><td>" + filmer.epost;
+        ut += "</td></tr>"
+    }
+    ut += "</table>";
+    $("#filmInfo").html(ut);
 }
 
 function slettBilletter() {
-    document.getElementById("filmInfo").innerHTML = "";
+    filmArray = [];
+    visBillett();
 }

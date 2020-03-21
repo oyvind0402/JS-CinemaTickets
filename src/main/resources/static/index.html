@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Billett bestilling</title>
     <script type = "text/javascript" src = "script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
 <h1>Bestilling av kinobilletter</h1>
@@ -48,7 +49,7 @@
         <td><span id="epostError" style = "color: red;"></span></td>
     </tr>
 </table>
-<button onclick = "kjopBillett();">Kjøp billett</button>
+<button onclick = "registrerBillett();">Kjøp billett</button>
 <h2>Alle billetter</h2>
 <div id = "filmInfo"></div>
 <button onclick="slettBilletter();">Slett alle billettene</button>
