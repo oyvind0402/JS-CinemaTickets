@@ -5,53 +5,61 @@
     <title>Billett bestilling</title>
     <script type = "text/javascript" src = "script.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 </head>
 <body>
-<h1>Bestilling av kinobilletter</h1>
-    <p><strong>Velg film:</strong>
-        <select id="film">
-            <option hidden>Velg film her!</option>
-            <option>Haisommer</option>
-            <option>Nattsvermeren</option>
-            <option>Ringenes Herre</option>
-            <option>Udødelig Våpen 1</option>
-            <option>Dumbo</option>
-            <option>Uno</option>
-        </select>
-        <span id = "filmError" style = "color: red;"></span>
-    </p>
-
-<p><strong>Antall</strong>
-    <input type = 'text' id = "antallFilmer" style= "width: 20px;" required>
-    <span id="antallError" style = "color: red;"></span>
-</p>
-
-<br/>
-<table>
-    <tr>
-        <td><strong>Fornavn</strong></td>
-        <td><input type = "text" id = "fornavn" required></td>
-        <td><span id="fornavnError" style = "color: red;"></span></td>
-    </tr>
-    <tr>
-        <td><strong>Etternavn</strong></td>
-        <td><input type = "text" id = "etternavn" required></td>
-        <td><span id = etternavnError style = "color: red;"></span></td>
-    </tr>
-    <tr>
-        <td><strong>Telefonnr</strong></td>
-        <td><input type = "text" id="telefonnr" required></td>
-        <td><span id="telefonError" style = "color: red;"></span></td>
-    </tr>
-    <tr>
-        <td><strong>Epost</strong></td>
-        <td><input type = "text" id = "epost" required></td>
-        <td><span id="epostError" style = "color: red;"></span></td>
-    </tr>
-</table>
-<button onclick = "registrerBillett();">Kjøp billett</button>
-<h2>Alle billetter</h2>
-<div id = "filmInfo"></div>
-<button onclick="slettBillettene();">Slett alle billettene</button>
+<div class="container-fluid">
+    <div class="row" style="margin-left: 5px; margin-right: 5px; ">
+        <div class="col-md-3">
+            <h2>Bestilling av kinobilletter</h2>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="film" class="control-label">Velg film:</label>
+                    <select class="form-control" id="film">
+                        <option>Velg film her!</option>
+                        <option>Haisommer</option>
+                        <option>Nattsvermeren</option>
+                        <option>Ringenes Herre</option>
+                        <option>Udødelig Våpen 1</option>
+                        <option>Dumbo</option>
+                        <option>Uno</option>
+                    </select>
+                    <span id = "filmError" style = "color: red;"></span>
+                </div>
+                <div class="form-group">
+                    <label for="antallFilmer" class="control-label">Antall:</label>
+                    <input type = 'number' id = "antallFilmer" required class="form-control">
+                    <span id="antallError" style = "color: red;"></span>
+                </div>
+                <div class="form-group">
+                    <label for="fornavn" class="control-label">Fornavn:</label>
+                    <input type = "text" id = "fornavn" required class="form-control">
+                    <span id="fornavnError" style = "color: red;"></span>
+                </div>
+                <div class="form-group">
+                    <label for="etternavn" class="control-label">Etternavn:</label>
+                    <input type = "text" id = "etternavn" required class="form-control">
+                    <span id = etternavnError style = "color: red;"></span>
+                </div>
+                <div class="form-group">
+                    <label for="telefonnr" class="control-label">Telefonnr:</label>
+                    <input type = "text" id="telefonnr" required class="form-control">
+                    <span id="telefonError" style = "color: red;"></span>
+                </div>
+                <div class="form-group">
+                    <label for="epost" class="control-label">Epost:</label>
+                    <input type = "text" id = "epost" required class="form-control">
+                    <span id="epostError" style = "color: red;"></span>
+                </div>
+            </form>
+            <button class="btn btn-primary" onclick = "registrerBillett();">Kjøp billett</button>
+        </div>
+        <div class="col-md-8">
+            <h2>Alle billetter</h2>
+            <div id = "filmInfo"></div>
+            <button class="btn btn-danger" onclick="slettBillettene();">Slett alle billettene</button>
+        </div>
+    </div>
+</div>
 </body>
 </html>

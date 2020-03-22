@@ -33,6 +33,7 @@ function hentBillettene() {
 
 function validerInput() {
 
+    $("#filmError").html("");
     $("#fornavnError").html("");
     $("#etternavnError").html("");
     $("#telefonError").html("");
@@ -41,7 +42,7 @@ function validerInput() {
 
     let error = false;
 
-    if($("#film").val()===""){
+    if($("#film").val()==="" || $("#film").val()==="Velg film her!"){
         $("#filmError").html("Du må velge en film!");
         error = true;
     }
@@ -71,7 +72,8 @@ function validerInput() {
 function visBillett(billetter) {
     let ut = "";
 
-    ut += "<table><tr><th><strong>Film</strong></th>" +
+    ut += "<br/><table class='table table-striped table-bordered'>" +
+        "<tr><th><strong>Film</strong></th>" +
         "<th><strong>Antall</strong></th>" +
         "<th><strong>Fornavn</strong></th>" +
         "<th><strong>Etternavn</strong></th>" +
