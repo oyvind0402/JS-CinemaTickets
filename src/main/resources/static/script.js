@@ -2,7 +2,7 @@ function registrerBillett() {
 
     const billett = {
         film: $("#film").val(),
-        antall: $("#antallFilmer").val(),
+        antall: $("#antallBilletter").val(),
         fornavn: $("#fornavn").val(),
         etternavn: $("#etternavn").val(),
         telefonnr: $("#telefonnr").val(),
@@ -16,7 +16,7 @@ function registrerBillett() {
         });
 
         $("#film").get(0).selectedIndex = 0;
-        $("#antallFilmer").val("");
+        $("#antallBilletter").val("");
         $("#fornavn").val("");
         $("#etternavn").val("");
         $("#telefonnr").val("");
@@ -46,7 +46,7 @@ function validerInput() {
         $("#filmError").html("Du må velge en film!");
         error = true;
     }
-    if($("#antallFilmer").val()===""){
+    if($("#antallBilletter").val()===""){
         $("#antallError").html("Du må skrive et antall billetter");
         error = true;
     }
