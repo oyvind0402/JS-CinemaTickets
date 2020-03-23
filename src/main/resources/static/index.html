@@ -53,6 +53,9 @@
                 </div>
             </form>
             <button class="btn btn-primary" onclick = "registrerBillett();">Kjøp billett</button>
+            <!-- La til en knapp for å kunne se billettene igjen uten å måtte legge til en ny billett
+            i tilfelle du refresher siden, for billettene er jo fortsatt i arrayet helt til du sletter de / shutter ned serveren. -->
+            <button class="btn" onclick="hentBillettene();">Vis billetthistorikk</button>
         </div>
         <div class="col-md-8">
             <h2>Alle billetter</h2>
