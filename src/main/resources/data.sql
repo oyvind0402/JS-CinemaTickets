@@ -1,0 +1,2 @@
+INSERT INTO Billett (film, antall, fornavn, etternavn, telefonnr, epost) VALUES ('Ringenes Herre', '1', 'Test', 'Person', '12345678', 'testperson@gmail.com');
+INSERT INTO Billett (film, antall, fornavn, etternavn, telefonnr, epost) VALUES ('Dumbo', '2', 'Person', 'Nummerto', '87654321', 'personnummerto@hotmail.com');

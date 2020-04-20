@@ -1,3 +1,7 @@
+$(function () {
+    hentBillettene();
+});
+
 function registrerBillett() {
 
     const billett = {
