@@ -1,6 +1,4 @@
-$(function () {
-    hentBillettene();
-});
+window.onload = hentBillettene;
 
 function registrerBillett() {
 
@@ -51,23 +49,23 @@ function validerInput() {
         error = true;
     }
     if($("#antallBilletter").val()===""){
-        $("#antallError").html("Du må skrive et antall billetter");
+        $("#antallError").html("Du må skrive et antall billetter!");
         error = true;
     }
     if($("#fornavn").val()===""){
-        $("#fornavnError").html("Du må skrive inn et fornavn");
+        $("#fornavnError").html("Du må skrive inn et fornavn!");
         error = true;
     }
     if($("#etternavn").val()===""){
-        $("#etternavnError").html("Du må skrive inn et etternavn");
+        $("#etternavnError").html("Du må skrive inn et etternavn!");
         error = true;
     }
     if($("#telefonnr").val()===""){
-        $("#telefonError").html("Du må skrive inn et telefonnr");
+        $("#telefonError").html("Du må skrive inn et telefonnr!");
         error = true;
     }
     if($("#epost").val()===""){
-        $("#epostError").html("Du må skrive inn en epost");
+        $("#epostError").html("Du må skrive inn en epost!");
         error = true;
     }
     return error;

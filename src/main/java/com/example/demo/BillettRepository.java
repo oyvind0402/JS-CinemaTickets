@@ -20,7 +20,7 @@ public class BillettRepository {
 
     public List<Billett> hentAlle() {
         String sql = "SELECT * FROM Billett";
-        return db.query(sql, new BeanPropertyRowMapper(Billett.class));
+        return db.query(sql, new BeanPropertyRowMapper<>(Billett.class));
     }
 
     public void slettAlle() {

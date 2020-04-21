@@ -28,7 +28,7 @@
                 </div>
                 <div class="form-group">
                     <label for="antallBilletter" class="control-label">Antall:</label>
-                    <input type = 'number' id = "antallBilletter" required class="form-control">
+                    <input type = 'number' id = "antallBilletter" required class="form-control" min="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
                     <span id="antallError" style = "color: red;"></span>
                 </div>
                 <div class="form-group">
@@ -53,9 +53,6 @@
                 </div>
             </form>
             <button class="btn btn-primary" onclick = "registrerBillett();">Kjøp billett</button>
-            <!-- La til en knapp for å kunne se billettene igjen uten å måtte legge til en ny billett
-            i tilfelle du refresher siden, for billettene er jo fortsatt i arrayet helt til du sletter de / shutter ned serveren. -->
-            <button class="btn" onclick="hentBillettene();">Vis billetthistorikk</button>
         </div>
         <div class="col-md-8">
             <h2>Alle billetter</h2>
