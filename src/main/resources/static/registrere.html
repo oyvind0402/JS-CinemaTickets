@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Billett bestilling</title>
+    <script type="text/javascript" src = "validering.js"></script>
+    <script type="text/javascript" src = "registrere.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row" style="margin-left: 5px; margin-right: 5px; ">
+        <div class="col-md-3">
+            <h2>Bestilling av kinobilletter</h2>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="film" class="control-label">Velg film:</label>
+                    <select class="form-control" id="film" onchange="validerFilm()">
+                        <option>Velg film her!</option>
+                        <option>Haisommer</option>
+                        <option>Nattsvermeren</option>
+                        <option>Ringenes Herre</option>
+                        <option>Udødelig Våpen 1</option>
+                        <option>Dumbo</option>
+                        <option>Uno</option>
+                    </select>
+                    <span id = "filmError" style = "color: red;"></span>
+                </div>
+                <div class="form-group">
+                    <label for="antallBilletter" class="control-label">Antall:</label>
+                    <input type = 'number' id = "antallBilletter" required class="form-control" min="1" onchange="validerAntall()">
+                    <span id="antallError" style = "color: red;"></span>
+                </div>
+                <div class="form-group">
+                    <label for="fornavn" class="control-label">Fornavn:</label>
+                    <input type = "text" id = "fornavn" required class="form-control" onchange="validerFornavn()">
+                    <span id="fornavnError" style = "color: red;"></span>
+                </div>
+                <div class="form-group">
+                    <label for="etternavn" class="control-label">Etternavn:</label>
+                    <input type = "text" id = "etternavn" required class="form-control" onchange="validerEtternavn()">
+                    <span id = etternavnError style = "color: red;"></span>
+                </div>
+                <div class="form-group">
+                    <label for="telefonnr" class="control-label">Telefonnr:</label>
+                    <input type = "text" id="telefonnr" required class="form-control" onchange="validerTlf()">
+                    <span id="telefonError" style = "color: red;"></span>
+                </div>
+                <div class="form-group">
+                    <label for="epost" class="control-label">Epost:</label>
+                    <input type = "text" id = "epost" required class="form-control" onchange="validerEpost()">
+                    <span id="epostError" style = "color: red;"></span>
+                </div>
+            </form>
+            <button class="btn btn-primary" onclick = "registrerBillett();">Kjøp billett</button>
+            <div id = "feil" style="color: red"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

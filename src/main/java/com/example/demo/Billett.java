@@ -1,6 +1,7 @@
 package com.example.demo;
 
 public class Billett {
+    private int id;
     private String film;
     private int antall;
     private String fornavn;
@@ -8,13 +9,14 @@ public class Billett {
     private String telefonnr;
     private String epost;
 
-    public Billett(String film, int antall, String fornavn, String etternavn, String telefonnr, String epost) {
+    public Billett(int id, String film, int antall, String fornavn, String etternavn, String telefonnr, String epost) {
         this.film = film;
         this.antall = antall;
         this.fornavn = fornavn;
         this.etternavn = etternavn;
         this.telefonnr = telefonnr;
         this.epost = epost;
+        this.id = id;
     }
 
     public Billett(){
@@ -31,6 +33,10 @@ public class Billett {
 
     public int getAntall() {
         return antall;
+    }
+
+    public String getAntallAsString() {
+        return String.valueOf(getAntall());
     }
 
     public void setAntall(int antall) {
@@ -67,5 +73,13 @@ public class Billett {
 
     public void setEpost(String epost) {
         this.epost = epost;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

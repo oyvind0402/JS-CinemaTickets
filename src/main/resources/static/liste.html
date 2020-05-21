@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Billett bestilling</title>
+    <script type = "text/javascript" src = "liste.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row" style="margin-left: 5px; margin-right: 5px; ">
+        <div class="col-md-8">
+            <h2>Alle billetter</h2>
+            <div id = "filmInfo"></div>
+            <button class="btn btn-primary" onclick="registrerLink();">Registrer billett</button>
+            <button class="btn btn-danger" onclick="slettBillettene();">Slett alle billettene</button>
+            <button class="btn btn-primary" onclick="loggUt()">Logg ut</button>
+            <div id = "feil" style="color: red"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
