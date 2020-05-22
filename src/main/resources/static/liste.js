@@ -1,4 +1,6 @@
-window.onload = hentBillettene;
+$(function () {
+    hentBillettene();
+});
 
 function hentBillettene() {
     $.get("/hentBillettene", function (billetter) {
