@@ -5,7 +5,7 @@ function registrerBruker() {
     };
 
     $.post("/registrerBruker", bruker, function () {
-        window.location.href = "/";
+        $("#feil").html("Bruker opprettet.")
     })
     .fail(function (jqXHR) {
         const json = $.parseJSON(jqXHR.responseText);

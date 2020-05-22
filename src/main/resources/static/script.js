@@ -1,4 +1,8 @@
-window.onload = hentAdmin;
+$(function () {
+    hentAdmin()
+});
+
+//window.onload = hentAdmin;
 
 function loggInn() {
     const url = "/loggInn?brukernavn="+$("#brukernavn").val()+"&passord="+$("#passord").val();

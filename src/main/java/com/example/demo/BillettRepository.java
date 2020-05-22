@@ -13,6 +13,9 @@ import java.util.List;
 @Repository
 public class BillettRepository {
 
+    @Autowired
+    private JdbcTemplate db;
+
     Logger logger = LoggerFactory.getLogger(BillettRepository.class);
 
     private String krypterPassord(String passord) {
@@ -23,9 +26,6 @@ public class BillettRepository {
     private boolean sjekkPassord(String passord, String hashPassord) {
         return BCrypt.checkpw(passord, hashPassord);
     }
-
-    @Autowired
-    private JdbcTemplate db;
 
     public boolean lagreBillett(Billett billett) {
         String sql = "INSERT INTO Billett (film,antall,fornavn,etternavn,telefonnr,epost) VALUES(?,?,?,?,?,?)";
@@ -134,7 +134,6 @@ public class BillettRepository {
             } else {
                 return false;
             }
-
         } catch (Exception e) {
             logger.error("Feil i lagreBruker " + e);
             return false;
