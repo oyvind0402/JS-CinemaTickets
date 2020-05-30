@@ -12,14 +12,16 @@
     <div class="row" style="margin-left: 5px; margin-right: 5px; ">
         <div class="col-md-4">
             <h1>Registrer bruker</h1>
-            <div class="form-group">
-                <label for="brukernavn">Brukernavn</label>
-                <input type="text" class="form-control" id="brukernavn">
-            </div>
             <form class="form">
+                <div class="form-group">
+                    <label for="brukernavn">Brukernavn</label>
+                    <input type="text" class="form-control" id="brukernavn">
+                    <span id="brukernavnError" style="color:red;"></span>
+                </div>
                 <div class="form-group">
                     <label for="passord">Passord</label>
                     <input type="password" class="form-control" id="passord">
+                    <span id="passordError" style="color: red"></span>
                 </div>
             </form>
             <button class="btn btn-primary" onclick="window.location.href = '/';">Tilbake til hjem</button><br/><br/>

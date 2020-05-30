@@ -16,7 +16,7 @@ public class BillettRepository {
     @Autowired
     private JdbcTemplate db;
 
-    Logger logger = LoggerFactory.getLogger(BillettRepository.class);
+    private Logger logger = LoggerFactory.getLogger(BillettRepository.class);
 
     private String krypterPassord(String passord) {
         String kryptertPassord = BCrypt.hashpw(passord, BCrypt.gensalt(5));

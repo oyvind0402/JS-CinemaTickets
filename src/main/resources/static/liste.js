@@ -16,12 +16,12 @@ function visBillett(billetter) {
     let ut = "";
 
     ut += "<br/><table class='table table-striped table-bordered'>" +
-        "<tr><th><strong>Film</strong></th>" +
-        "<th><strong>Antall</strong></th>" +
-        "<th><strong>Fornavn</strong></th>" +
-        "<th><strong>Etternavn</strong></th>" +
-        "<th><strong>Telefonnr</strong></th>" +
-        "<th><strong>Epost</strong></th>" +
+        "<tr><th>Film</th>" +
+        "<th>Antall</th>" +
+        "<th>Fornavn</th>" +
+        "<th>Etternavn</th>" +
+        "<th>Telefonnr</th>" +
+        "<th>Epost</th>" +
         "<th></th><th></th></tr>";
 
     for(let billett of billetter){
