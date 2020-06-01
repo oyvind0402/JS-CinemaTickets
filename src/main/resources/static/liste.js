@@ -6,10 +6,10 @@ function hentBillettene() {
     $.get("/hentBillettene", function (billetter) {
         visBillett(billetter);
     })
-        .fail(function (jqXHR) {
-            const json = $.parseJSON(jqXHR.responseText);
-            $("#feil").html(json.message);
-        });
+    .fail(function (jqXHR) {
+        const json = $.parseJSON(jqXHR.responseText);
+        $("#feil").html(json.message);
+    });
 }
 
 function visBillett(billetter) {
